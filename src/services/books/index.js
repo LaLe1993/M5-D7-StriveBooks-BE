@@ -28,7 +28,7 @@ booksRouter.get("/:asin", async (req, res, next) => {
   try {
     const books = await getBooks()
 
-    const bookFound = books.filter(book => book.asin === req.params.asin)
+    const bookFound = books.find(book => book.asin === req.params.asin)
 
     if (bookFound) {
       res.send(bookFound)
